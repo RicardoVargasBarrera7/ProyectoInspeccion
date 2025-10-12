@@ -16,33 +16,34 @@ public class UsuarioDAO {
     }
 
     // CREATE - Insertar usuario
-    public boolean insertar(Usuarios usuario) {
-        try {
-            String sql = "INSERT INTO Usuarios (id_usuario, num_identificacion, nombres, apellidos, direccion, telefono, correo_electronico, ingreso_usuario, ingreso_Contrasenia, nro_registro_ica, tarjeta_profesional, id_cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = conexion.estableceConexion().prepareStatement(sql);
+public boolean insertar(Usuarios usuario) {
+    try {
+        String sql = "INSERT INTO Usuarios (id_usuario, num_identificacion, nombres, apellidos, direccion, telefono, correo_electronico, ingreso_usuario, ingreso_contrasenia, nro_registro_ica, tarjeta_profesional, id_cargo) " +
+             "VALUES (SEQ_USUARIOS.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = conexion.estableceConexion().prepareStatement(sql);
 
-            ps.setString(1, usuario.getIdUsuario());
-            ps.setString(2, usuario.getNumIdentificacion());
-            ps.setString(3, usuario.getNombres());
-            ps.setString(4, usuario.getApellidos());
-            ps.setString(5, usuario.getDireccion());
-            ps.setString(6, usuario.getTelefono());
-            ps.setString(7, usuario.getCorreoElectronico());
-            ps.setString(8, usuario.getIngresoUsuario());
-            ps.setString(9, usuario.getIngresoContrasenia());
-            ps.setString(10, usuario.getNroRegistroICA());
-            ps.setString(11, usuario.getTarjetaProfesional());
-            ps.setString(12, usuario.getIdCargo());
+        ps.setString(1, usuario.getNumIdentificacion());
+        ps.setString(2, usuario.getNombres());
+        ps.setString(3, usuario.getApellidos());
+        ps.setString(4, usuario.getDireccion());
+        ps.setString(5, usuario.getTelefono());
+        ps.setString(6, usuario.getCorreoElectronico());
+        ps.setString(7, usuario.getIngresoUsuario());
+        ps.setString(8, usuario.getIngresoContrasenia());
+        ps.setString(9, usuario.getNroRegistroICA());
+        ps.setString(10, usuario.getTarjetaProfesional());
+        ps.setString(11, usuario.getIdCargo());
 
-            int resultado = ps.executeUpdate();
-            ps.close();
-            return resultado > 0;
+        int resultado = ps.executeUpdate();
+        ps.close();
+        return resultado > 0;
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar usuario: " + e.getMessage());
-            return false;
-        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al insertar usuario: " + e.getMessage());
+        return false;
     }
+}
+
 
     // READ - Listar todos
     public List<Usuarios> listarTodos() {
