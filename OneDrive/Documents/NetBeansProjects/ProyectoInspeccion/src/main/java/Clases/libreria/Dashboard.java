@@ -96,8 +96,13 @@ public class Dashboard extends javax.swing.JFrame {
         btnCerrarSesion.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarSesion.setText("Cerrar Sesión");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setBackground(new java.awt.Color(27, 94, 32));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Principal");
         jButton1.setBorder(null);
@@ -109,14 +114,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btnPlaga.setBackground(new java.awt.Color(255, 0, 0));
+        btnPlaga.setBackground(new java.awt.Color(27, 94, 32));
         btnPlaga.setForeground(new java.awt.Color(255, 255, 255));
         btnPlaga.setText("📝 Registrar Plaga");
         btnPlaga.setBorder(null);
         btnPlaga.setBorderPainted(false);
         btnPlaga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnGestionarTecnicos.setBackground(new java.awt.Color(255, 0, 0));
+        btnGestionarTecnicos.setBackground(new java.awt.Color(27, 94, 32));
         btnGestionarTecnicos.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarTecnicos.setText("👨‍🔬 Gestionar Usuarios");
         btnGestionarTecnicos.setBorder(null);
@@ -128,14 +133,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btnGestionarProductores.setBackground(new java.awt.Color(255, 0, 0));
+        btnGestionarProductores.setBackground(new java.awt.Color(27, 94, 32));
         btnGestionarProductores.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarProductores.setText("Informe Fitosanitario");
         btnGestionarProductores.setBorder(null);
         btnGestionarProductores.setBorderPainted(false);
         btnGestionarProductores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnProduccion.setBackground(new java.awt.Color(255, 0, 0));
+        btnProduccion.setBackground(new java.awt.Color(27, 94, 32));
         btnProduccion.setForeground(new java.awt.Color(255, 255, 255));
         btnProduccion.setText("Informe Produccion");
         btnProduccion.setBorder(null);
@@ -147,7 +152,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        btnReportes.setBackground(new java.awt.Color(255, 0, 0));
+        btnReportes.setBackground(new java.awt.Color(27, 94, 32));
         btnReportes.setForeground(new java.awt.Color(255, 255, 255));
         btnReportes.setText("Reportes");
         btnReportes.setBorder(null);
@@ -229,6 +234,7 @@ public class Dashboard extends javax.swing.JFrame {
         logo.setBackground(new java.awt.Color(27, 94, 32));
         logo.setPreferredSize(new java.awt.Dimension(270, 135));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LOGO");
 
         javax.swing.GroupLayout logoLayout = new javax.swing.GroupLayout(logo);
@@ -308,17 +314,6 @@ public class Dashboard extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Función en desarrollo: " + texto);
     }
 
-    private void cerrarSesion() {
-        int respuesta = JOptionPane.showConfirmDialog(this,
-                "¿Está seguro que desea cerrar sesión?",
-                "Confirmar",
-                JOptionPane.YES_NO_OPTION);
-        if (respuesta == JOptionPane.YES_OPTION) {
-            this.dispose();
-            new FormLogin().setVisible(true);
-        }
-    }
-
     // Control de visibilidad según cargo
     private void configurarMenuSegunCargo() {
         lblBienvenida.setText("Bienvenido: " + nombreUsuario);
@@ -350,7 +345,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProduccionActionPerformed
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
-        // TODO dd your handling code here:
+        JOptionPane.showMessageDialog(this, "Función en desarrollo: Reportes");
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -360,6 +355,19 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnGestionarTecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarTecnicosActionPerformed
         ShowJPanel(new GestionUsuarios());        // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarTecnicosActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        int respuesta = JOptionPane.showConfirmDialog(this, 
+        "¿Está seguro que desea cerrar sesión?", 
+        "Confirmar", 
+        JOptionPane.YES_NO_OPTION);
+    
+        if (respuesta == JOptionPane.YES_OPTION) {
+            this.dispose(); // Cerrar esta ventana
+            FormLogin login = new FormLogin();
+            login.setVisible(true); // Volver al login
+        }
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
