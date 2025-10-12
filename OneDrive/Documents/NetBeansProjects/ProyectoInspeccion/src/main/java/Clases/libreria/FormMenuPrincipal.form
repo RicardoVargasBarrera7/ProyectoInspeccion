@@ -24,35 +24,39 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnGestionarTecnicos" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnRegistrarPlaga" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnGestionarProductores" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnGestionarPredios" max="32767" attributes="0"/>
+                  <Component id="btnGestionarCatalogos" pref="321" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblTitulo" min="-2" pref="333" max="-2" attributes="0"/>
                           <Component id="lblBienvenida" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCargo" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnGestionarTecnicos" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnRegistrarPlaga" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnGestionarProductores" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnGestionarPredios" max="32767" attributes="0"/>
-                          <Component id="btnGestionarCatalogos" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                      <Component id="lblTitulo" min="-2" pref="333" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -141,7 +145,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGestionarTecnicos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\ud83d\udc68&#x200d;\ud83d\udd2c Gestionar T&#xe9;cnicos Autorizados" containsInvalidXMLChars="true"/>
+        <Property name="text" type="java.lang.String" value="\ud83d\udc68&#x200d;\ud83d\udd2c Gestionar Usuarios" containsInvalidXMLChars="true"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarTecnicosActionPerformed"/>

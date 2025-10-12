@@ -51,11 +51,11 @@ public class Usuarios {
         this.idUsuario = idUsuario;
     }
 
-    public String getNumeroIdentificacion() {
+    public String getNumIdentificacion() {
         return numIdentificacion;
     }
 
-    public void setNumeroIdentificacion(String numIdentificacion) {
+    public void setNumIdentificacion(String numIdentificacion) {
         this.numIdentificacion = numIdentificacion;
     }
 
@@ -135,7 +135,7 @@ public class Usuarios {
         return tarjetaProfesional;
     }
 
-    public void TarjetaProfesional(String tarjetaProfesional) {
+    public void setTarjetaProfesional (String tarjetaProfesional) {
         this.tarjetaProfesional = tarjetaProfesional;
     }
     

@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases.BD;
+package Clases.db;
 
 import Clases.dao.CargoDAO;
 import Clases.modelo.Cargo;
-import com.mycompany.login.FormLogin;
-import com.mycompany.login.FormMenuPrincipal;
+import Clases.libreria.FormLogin;
+import Clases.libreria.Dashboard;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
@@ -56,7 +56,7 @@ public class CLogin {
                     JOptionPane.INFORMATION_MESSAGE);
                 
                 // ✅ Abrir menú principal con los datos del usuario
-                FormMenuPrincipal objetoMenu = new FormMenuPrincipal(idUsuario, nombreCompleto, nombreCargo);
+                Dashboard objetoMenu = new Dashboard(idUsuario, nombreCompleto, nombreCargo);
                 objetoMenu.setVisible(true);
                 
                 // Cerrar formulario de login

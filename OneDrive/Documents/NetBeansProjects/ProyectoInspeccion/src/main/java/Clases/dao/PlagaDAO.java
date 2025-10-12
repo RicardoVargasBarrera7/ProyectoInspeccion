@@ -4,7 +4,7 @@
  */
 package Clases.dao;
 
-import Clases.BD.CConexion;
+import Clases.db.CConexion;
 import Clases.modelo.Plaga;
 import java.sql.*;
 import java.util.ArrayList;
