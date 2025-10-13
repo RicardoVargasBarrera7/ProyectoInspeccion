@@ -9,49 +9,47 @@ import javax.swing.JOptionPane;
 
 public class UsuarioDAO {
 
-    private CConexion conexion;
+    private final CConexion conexion;
 
     public UsuarioDAO() {
         this.conexion = new CConexion();
     }
 
-    // CREATE - Insertar usuario
-public boolean insertar(Usuarios usuario) {
-    try {
-        String sql = "INSERT INTO Usuarios (id_usuario, num_identificacion, nombres, apellidos, direccion, telefono, correo_electronico, ingreso_usuario, ingreso_contrasenia, nro_registro_ica, tarjeta_profesional, id_cargo) " +
-             "VALUES (SEQ_USUARIOS.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = conexion.estableceConexion().prepareStatement(sql);
+    // ✅ CREATE - Insertar usuario (no se modifica)
+    public boolean insertar(Usuarios usuario) {
+        try {
+            String sql = "INSERT INTO Usuarios (id_usuario, num_identificacion, nombres, apellidos, direccion, telefono, correo_electronico, ingreso_usuario, ingreso_contrasenia, nro_registro_ica, tarjeta_profesional, id_cargo) "
+                    + "VALUES (SEQ_USUARIOS.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conexion.estableceConexion().prepareStatement(sql);
 
-        ps.setString(1, usuario.getNumIdentificacion());
-        ps.setString(2, usuario.getNombres());
-        ps.setString(3, usuario.getApellidos());
-        ps.setString(4, usuario.getDireccion());
-        ps.setString(5, usuario.getTelefono());
-        ps.setString(6, usuario.getCorreoElectronico());
-        ps.setString(7, usuario.getIngresoUsuario());
-        ps.setString(8, usuario.getIngresoContrasenia());
-        ps.setString(9, usuario.getNroRegistroICA());
-        ps.setString(10, usuario.getTarjetaProfesional());
-        ps.setString(11, usuario.getIdCargo());
+            ps.setString(1, usuario.getNumIdentificacion());
+            ps.setString(2, usuario.getNombres());
+            ps.setString(3, usuario.getApellidos());
+            ps.setString(4, usuario.getDireccion());
+            ps.setString(5, usuario.getTelefono());
+            ps.setString(6, usuario.getCorreoElectronico());
+            ps.setString(7, usuario.getIngresoUsuario());
+            ps.setString(8, usuario.getIngresoContrasenia());
+            ps.setString(9, usuario.getNroRegistroICA());
+            ps.setString(10, usuario.getTarjetaProfesional());
+            ps.setString(11, usuario.getIdCargo());
 
-        int resultado = ps.executeUpdate();
-        ps.close();
-        return resultado > 0;
+            int resultado = ps.executeUpdate();
+            ps.close();
+            return resultado > 0;
 
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "Error al insertar usuario: " + e.getMessage());
-        return false;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al insertar usuario: " + e.getMessage());
+            return false;
+        }
     }
-}
 
-
-    // READ - Listar todos
+    // ✅ READ - Listar usuarios
     public List<Usuarios> listarTodos() {
         List<Usuarios> lista = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM Usuarios ORDER BY id_usuario";
-            Statement st = conexion.estableceConexion().createStatement();
-            ResultSet rs = st.executeQuery(sql);
+        String sql = "SELECT * FROM Usuarios ORDER BY id_usuario";
+
+        try (Connection con = conexion.estableceConexion(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
 
             while (rs.next()) {
                 Usuarios u = new Usuarios();
@@ -66,11 +64,9 @@ public boolean insertar(Usuarios usuario) {
                 u.setIngresoContrasenia(rs.getString("ingreso_contrasenia"));
                 u.setNroRegistroICA(rs.getString("nro_registro_ica"));
                 u.setTarjetaProfesional(rs.getString("tarjeta_profesional"));
-                u.setIdCargo(rs.getString("idCargo"));
+                u.setIdCargo(rs.getString("id_cargo"));
                 lista.add(u);
             }
-            rs.close();
-            st.close();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al listar usuarios: " + e.getMessage());
@@ -78,27 +74,26 @@ public boolean insertar(Usuarios usuario) {
         return lista;
     }
 
-    // UPDATE
+    // ✅ UPDATE - Actualizar usuario
     public boolean actualizar(Usuarios usuario) {
-        try {
-            String sql = "UPDATE Usuarios SET numIdentificacion=?, nombres=?, apellidos=?, direccion=?, telefono=?, correoElectronico=?, ingresoUsuario=?, ingresoContrasenia=?, nroRegistroICA=?, tarjetaProfesional=?, idCargo=? WHERE idUsuario=?";
-            PreparedStatement ps = conexion.estableceConexion().prepareStatement(sql);
+        String sql = "UPDATE Usuarios SET num_identificacion=?, nombres=?, apellidos=?, direccion=?, telefono=?, correo_electronico=?, ingreso_usuario=?, ingreso_contrasenia=?, nro_registro_ica=?, tarjeta_profesional=?, id_cargo=? WHERE id_usuario=?";
 
-            ps.setString(1, usuario.getIdUsuario());
-            ps.setString(2, usuario.getNumIdentificacion());
-            ps.setString(3, usuario.getNombres());
-            ps.setString(4, usuario.getApellidos());
-            ps.setString(5, usuario.getDireccion());
-            ps.setString(6, usuario.getTelefono());
-            ps.setString(7, usuario.getCorreoElectronico());
-            ps.setString(8, usuario.getIngresoUsuario());
-            ps.setString(9, usuario.getIngresoContrasenia());
-            ps.setString(10, usuario.getNroRegistroICA());
-            ps.setString(11, usuario.getTarjetaProfesional());
-            ps.setString(12, usuario.getIdCargo());
+        try (Connection con = conexion.estableceConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, usuario.getNumIdentificacion());
+            ps.setString(2, usuario.getNombres());
+            ps.setString(3, usuario.getApellidos());
+            ps.setString(4, usuario.getDireccion());
+            ps.setString(5, usuario.getTelefono());
+            ps.setString(6, usuario.getCorreoElectronico());
+            ps.setString(7, usuario.getIngresoUsuario());
+            ps.setString(8, usuario.getIngresoContrasenia());
+            ps.setString(9, usuario.getNroRegistroICA());
+            ps.setString(10, usuario.getTarjetaProfesional());
+            ps.setString(11, usuario.getIdCargo());
+            ps.setString(12, usuario.getIdUsuario());
 
             int resultado = ps.executeUpdate();
-            ps.close();
             return resultado > 0;
 
         } catch (SQLException e) {
@@ -107,15 +102,14 @@ public boolean insertar(Usuarios usuario) {
         }
     }
 
-    // DELETE
+    // ✅ DELETE - Eliminar usuario
     public boolean eliminar(String id) {
-        try {
-            String sql = "DELETE FROM Usuarios WHERE idUsuario = ?";
-            PreparedStatement ps = conexion.estableceConexion().prepareStatement(sql);
-            ps.setString(1, id);
+        String sql = "DELETE FROM Usuarios WHERE id_usuario = ?";
 
+        try (Connection con = conexion.estableceConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, id);
             int resultado = ps.executeUpdate();
-            ps.close();
             return resultado > 0;
 
         } catch (SQLException e) {
@@ -124,23 +118,52 @@ public boolean insertar(Usuarios usuario) {
         }
     }
 
+    // ✅ READ - Buscar usuario por ID
+    public Usuarios obtenerPorId(String idUsuario) {
+        Usuarios usuario = null;
+        String sql = "SELECT * FROM Usuarios WHERE id_usuario = ?";
+
+        try (Connection con = conexion.estableceConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                usuario = new Usuarios();
+                usuario.setIdUsuario(rs.getString("id_usuario"));
+                usuario.setNumIdentificacion(rs.getString("num_identificacion"));
+                usuario.setNombres(rs.getString("nombres"));
+                usuario.setApellidos(rs.getString("apellidos"));
+                usuario.setDireccion(rs.getString("direccion"));
+                usuario.setTelefono(rs.getString("telefono"));
+                usuario.setCorreoElectronico(rs.getString("correo_electronico"));
+                usuario.setIngresoUsuario(rs.getString("ingreso_usuario"));
+                usuario.setIngresoContrasenia(rs.getString("ingreso_contrasenia"));
+                usuario.setNroRegistroICA(rs.getString("nro_registro_ica"));
+                usuario.setTarjetaProfesional(rs.getString("tarjeta_profesional"));
+                usuario.setIdCargo(rs.getString("id_cargo"));
+            }
+            rs.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener usuario: " + e.getMessage());
+        }
+        return usuario;
+    }
+
+    // ✅ GENERADOR DE ID
     public String generarSiguienteId() {
-        try {
-            String sql = "SELECT MAX(TO_NUMBER(id_usuario)) FROM Usuarios";
-            Statement st = conexion.estableceConexion().createStatement();
-            ResultSet rs = st.executeQuery(sql);
+        String sql = "SELECT MAX(TO_NUMBER(id_usuario)) FROM Usuarios";
+        try (Connection con = conexion.estableceConexion(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
 
             if (rs.next()) {
                 int ultimoNumero = rs.getInt(1);
                 return String.valueOf(ultimoNumero + 1);
             }
-            rs.close();
-            st.close();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al generar ID: " + e.getMessage());
         }
         return "1"; // si no hay registros, el primero será "1"
     }
-
 }
