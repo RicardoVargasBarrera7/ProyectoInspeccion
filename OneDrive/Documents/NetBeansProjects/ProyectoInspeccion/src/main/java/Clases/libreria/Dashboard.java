@@ -48,16 +48,17 @@ public class Dashboard extends javax.swing.JFrame {
         ShowJPanel(new Principal());
     }
 
-    public void ShowJPanel(JPanel p) {
+    public static void ShowJPanel(JPanel p) {
         p.setSize(750, 430);
-        p.setLocation(0,0);
+        p.setLocation(0, 0);
 
         content.removeAll();
-        content.setLayout(new BorderLayout()); // Importante para que escale
         content.add(p, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }
+
+    /*ShowJPanel(new Principal());
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -305,10 +306,6 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mostrarMensaje(String texto) {
-        JOptionPane.showMessageDialog(this, "Función en desarrollo: " + texto);
-    }
-
     // Control de visibilidad según cargo
     private void configurarMenuSegunCargo() {
         lblBienvenida.setText("Bienvenido: " + nombreUsuario);
@@ -340,7 +337,6 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProduccionActionPerformed
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
-        JOptionPane.showMessageDialog(this, "Función en desarrollo: Reportes");
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -372,7 +368,11 @@ public class Dashboard extends javax.swing.JFrame {
         FlatMacLightLaf.setup();
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Dashboard().setVisible(true));
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Dashboard().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -383,7 +383,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnPlaga;
     private javax.swing.JButton btnProduccion;
     private javax.swing.JButton btnReportes;
-    private javax.swing.JPanel content;
+    private static javax.swing.JPanel content;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

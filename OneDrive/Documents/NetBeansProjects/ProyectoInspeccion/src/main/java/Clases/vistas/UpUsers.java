@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author ricar
  */
-public class UsuariosGuardar extends javax.swing.JPanel {
+public class UpUsers extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal
      */
-    public UsuariosGuardar() {
+    public UpUsers() {
         initComponents();
         cargarComboCargos();
 

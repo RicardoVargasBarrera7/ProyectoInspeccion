@@ -6,7 +6,9 @@ package Clases.vistas;
 
 import Clases.dao.UsuarioDAO;
 import Clases.modelo.Usuarios;
+import Clases.libreria.Dashboard;
 import javax.swing.JOptionPane;
+import Clases.vistas.UpUsers;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,7 +24,6 @@ public class GestionUsuarios extends javax.swing.JPanel {
         initComponents();
         LoadUsers();
     }
-
 
     private void LoadUsers() {
         try {
@@ -158,6 +159,7 @@ public class GestionUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Dashboard.ShowJPanel(new UpUsers());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed

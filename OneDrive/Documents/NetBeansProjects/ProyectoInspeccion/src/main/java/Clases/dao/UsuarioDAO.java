@@ -118,15 +118,20 @@ public class UsuarioDAO {
         }
     }
 
-    // ✅ READ - Buscar usuario por ID
-    public Usuarios obtenerPorId(String idUsuario) {
-        Usuarios usuario = null;
+// ✅ OBTENER UN USUARIO POR SU ID
+    public Usuarios getUserById(String idUsuario) throws Exception {
         String sql = "SELECT * FROM Usuarios WHERE id_usuario = ?";
+        Usuarios usuario = null;
 
-        try (Connection con = conexion.estableceConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
+        try {
+            con = conexion.estableceConexion();
+            ps = con.prepareStatement(sql);
             ps.setString(1, idUsuario);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
 
             if (rs.next()) {
                 usuario = new Usuarios();
@@ -143,11 +148,21 @@ public class UsuarioDAO {
                 usuario.setTarjetaProfesional(rs.getString("tarjeta_profesional"));
                 usuario.setIdCargo(rs.getString("id_cargo"));
             }
-            rs.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al obtener usuario: " + e.getMessage());
+            throw new Exception("Error al obtener el usuario por ID: " + e.getMessage(), e);
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
         }
+
         return usuario;
     }
 
