@@ -33,7 +33,7 @@ public class Principal extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        bg.setBackground(new java.awt.Color(102, 255, 102));
+        bg.setBackground(new java.awt.Color(213, 242, 185));
         bg.setPreferredSize(new java.awt.Dimension(750, 436));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N

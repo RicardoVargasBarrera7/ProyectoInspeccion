@@ -75,7 +75,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnPlaga = new javax.swing.JButton();
         btnGestionarTecnicos = new javax.swing.JButton();
-        btnGestionarProductores = new javax.swing.JButton();
+        btnFitosanitario = new javax.swing.JButton();
         btnProduccion = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         header = new javax.swing.JPanel();
@@ -109,7 +109,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1.setText("Principal");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -121,33 +121,43 @@ public class Dashboard extends javax.swing.JFrame {
         btnPlaga.setText("📝 Registrar Plaga");
         btnPlaga.setBorder(null);
         btnPlaga.setBorderPainted(false);
-        btnPlaga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPlaga.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnPlaga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlagaActionPerformed(evt);
+            }
+        });
 
         btnGestionarTecnicos.setBackground(new java.awt.Color(27, 94, 32));
         btnGestionarTecnicos.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarTecnicos.setText("Gestionar Usuarios");
         btnGestionarTecnicos.setBorder(null);
         btnGestionarTecnicos.setBorderPainted(false);
-        btnGestionarTecnicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGestionarTecnicos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGestionarTecnicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGestionarTecnicosActionPerformed(evt);
             }
         });
 
-        btnGestionarProductores.setBackground(new java.awt.Color(27, 94, 32));
-        btnGestionarProductores.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarProductores.setText("Informe Fitosanitario");
-        btnGestionarProductores.setBorder(null);
-        btnGestionarProductores.setBorderPainted(false);
-        btnGestionarProductores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFitosanitario.setBackground(new java.awt.Color(27, 94, 32));
+        btnFitosanitario.setForeground(new java.awt.Color(255, 255, 255));
+        btnFitosanitario.setText("Informe Fitosanitario");
+        btnFitosanitario.setBorder(null);
+        btnFitosanitario.setBorderPainted(false);
+        btnFitosanitario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFitosanitario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFitosanitarioActionPerformed(evt);
+            }
+        });
 
         btnProduccion.setBackground(new java.awt.Color(27, 94, 32));
         btnProduccion.setForeground(new java.awt.Color(255, 255, 255));
         btnProduccion.setText("Informe Produccion");
         btnProduccion.setBorder(null);
         btnProduccion.setBorderPainted(false);
-        btnProduccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProduccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnProduccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProduccionActionPerformed(evt);
@@ -159,7 +169,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnReportes.setText("Reportes");
         btnReportes.setBorder(null);
         btnReportes.setBorderPainted(false);
-        btnReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportesActionPerformed(evt);
@@ -174,7 +184,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(btnGestionarTecnicos, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnPlaga, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnGestionarProductores, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnFitosanitario, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
@@ -193,7 +203,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(btnProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnGestionarProductores, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFitosanitario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113)
@@ -220,7 +230,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lblTitulo)
                     .addComponent(lblBienvenida)
                     .addComponent(lblCargo))
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,6 +247,7 @@ public class Dashboard extends javax.swing.JFrame {
         logo.setBackground(new java.awt.Color(27, 94, 32));
         logo.setPreferredSize(new java.awt.Dimension(270, 135));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LOGO");
 
@@ -315,18 +326,18 @@ public class Dashboard extends javax.swing.JFrame {
             case "Administrador ICA":
                 break;
             case "Propietario":
-                btnGestionarProductores.setVisible(false);
+                btnFitosanitario.setVisible(false);
                 btnGestionarTecnicos.setVisible(false);
                 btnProduccion.setVisible(false);
                 break;
             case "Productor":
-                btnGestionarProductores.setVisible(false);
+                btnFitosanitario.setVisible(false);
                 btnProduccion.setVisible(false);
                 btnGestionarTecnicos.setVisible(false);
                 btnReportes.setVisible(false);
                 break;
             case "Asistente Técnico":
-                btnGestionarProductores.setVisible(false);
+                btnFitosanitario.setVisible(false);
                 btnReportes.setVisible(false);
                 btnGestionarTecnicos.setVisible(false);
                 break;
@@ -334,9 +345,11 @@ public class Dashboard extends javax.swing.JFrame {
     }
     private void btnProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProduccionActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "🚀 La sección de informes de producción estará disponible próximamente.", "En desarrollo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnProduccionActionPerformed
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
+        JOptionPane.showMessageDialog(this, "🚀 La sección de reportes estará disponible próximamente.", "En desarrollo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -360,6 +373,16 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
+    private void btnPlagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlagaActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "🚀 La sección de Registrar Plaga estará disponible próximamente.", "En desarrollo", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnPlagaActionPerformed
+
+    private void btnFitosanitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFitosanitarioActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "🚀 La sección de informe fitosanitario estará disponible próximamente.", "En desarrollo", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnFitosanitarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,7 +401,7 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton btnGestionarProductores;
+    private javax.swing.JButton btnFitosanitario;
     private javax.swing.JButton btnGestionarTecnicos;
     private javax.swing.JButton btnPlaga;
     private javax.swing.JButton btnProduccion;
