@@ -180,7 +180,40 @@ public class GestionUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        int fila = jTable1.getSelectedRow();
 
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un usuario de la tabla.");
+            return;
+        }
+
+        // Supongamos que la columna 0 tiene el número de identificación
+        String idUser = jTable1.getValueAt(fila, 0).toString();
+
+        // Buscar el usuario en la BD
+        try {
+        // Buscar el usuario en la BD
+        Clases.dao.UsuarioDAO buscarId = new Clases.dao.UsuarioDAO();
+        Clases.modelo.Usuarios usuario = buscarId.getUserById(idUser);
+
+        if (usuario != null) {
+            // Crear el panel EditUsers y pasarle el usuario
+            EditUsers panelEditar = new EditUsers();
+            panelEditar.setUsuario(usuario);
+
+            // Mostrar el panel en el Dashboard
+            Dashboard.ShowJPanel(panelEditar);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró el usuario seleccionado.");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this,
+                "Error al obtener el usuario: " + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_btnEditarActionPerformed
 
 
