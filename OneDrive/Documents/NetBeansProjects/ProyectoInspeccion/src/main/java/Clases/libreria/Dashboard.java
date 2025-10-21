@@ -118,7 +118,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         btnPlaga.setBackground(new java.awt.Color(27, 94, 32));
         btnPlaga.setForeground(new java.awt.Color(255, 255, 255));
-        btnPlaga.setText("📝 Registrar Plaga");
+        btnPlaga.setText("Registrar Plaga");
         btnPlaga.setBorder(null);
         btnPlaga.setBorderPainted(false);
         btnPlaga.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -215,6 +215,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setText("Sistema de Gestión Agrícola");
 
+        lblBienvenida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblBienvenida.setText("Bienvenido: Usuario");
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

@@ -14,7 +14,7 @@ public class UsuarioDAO {
     public UsuarioDAO() {
         this.conexion = new CConexion();
     }
-
+    
     // ✅ CREATE - Insertar usuario (no se modifica)
     public boolean insertar(Usuarios usuario) {
         try {
